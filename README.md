@@ -20,12 +20,13 @@
 * lalu masuk untuk pilihan login di sini masuk def menu untuk user
 * dimenu user terlihat pilihan dan input 
 * dibawahnya terlihat def lagi untuk melihat stok atau pilihan kedua daari menu user
-* lanjut ke  fungsi def rental barangnya 
+* lanjut ke fungsi def rental barangnya 
 * disini memasukkan input untuk memasukkan seri iphone yang ingin dirental
 * lalu ada logika if dan else lalu ada juga lower disini yang dimana sebagai agar pemilihan huruf auto menjadi huruf kecil semua
 * input disini ada dari stok dan durasi lalu ada perkalian antar stok item yang dirental dengan durasi perentalan
 * lalu diakhir ada fungsi mmasuk() yang berguna untuk bisa melakukan login
+* lalu ada for dan in disini berguna untuk mengarhkan dan mengambil yang ingin dituju.
 * lalu yang saya lupa itu ada while true: yang dimana ini sebagai pengulangan sehingga ketika telah selesai melakukan sesuatu itu bisa kembali pada menu yang dituju.
 * sekian dari saya
-* **Terima Kasih Bang dan Mba**
+* erima Kasih Bang dan Mba
 😊🙇
