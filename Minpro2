@@ -1,0 +1,129 @@
+from prettytable import PrettyTable
+
+
+admin = {"Nama": "irpan", "pin": "8888"}
+user = {"Nama": "sayang", "pin": "1212"}
+
+stok_barang = [
+    {"Item": "iphone 20","Harga sewa satuan":"Rp.500.000/d","Jumlah stok": 7},
+    {"Item": "iPhone 17","Harga sewa satuan":"Rp.350.000/d", "Jumlah stok": 5},
+    {"Item": "iPhone 1","Harga sewa satuan":"Rp.20.000/d", "Jumlah stok": 2},
+]
+
+def masuk():
+    while True :
+        print("="*40)
+        print("Welcome Di Kaizen Rental ")
+        print("="*40)
+        nama = input("Masukkan Nama Anda: ")
+        pin = input("Masukkan PIN Anda: ")
+        
+        if nama == admin["Nama"] and pin == admin["pin"]:
+            menu_admin()     
+        elif nama == user["Nama"] and pin == user["pin"]:
+            menu_user()
+        else:
+            print("Nama atau pin salah.")
+
+
+def menu_admin():
+    while True:
+        print("====== Apa Kabar Admin ======= ")
+        print("1. Lihat Stock")
+        print("2. Tambah Stok")
+        print("3. Hapus Stok")
+        print("4. Keluar")
+        pilih = input("Pilih opsi: ")
+        
+        if pilih == "1":
+            lihat_stok()
+        elif pilih == "2":
+            tambah_stok()
+        elif pilih == "3":
+            hapus_stok()
+        elif pilih == "4":
+            print("Keluar dari menu admin.")
+            masuk()
+            return
+        else:
+            print("Menu Tidak Sesuai.")
+            
+
+def lihat_stok():
+    judul1 = " Daftar Stok Iphone "
+    table = PrettyTable()
+    table.title = judul1
+    table.field_names = ["item","Harga sewa satuan","Jumlah stok"]
+    
+    for item in stok_barang:
+        table.add_row([item["Item"],item["Harga sewa satuan"],item["Jumlah stok"]])
+    print(table)
+
+def tambah_stok():
+    iphone_baru = input("Masukkan nama item baru: ")
+    harga_sewa = input("mmasukka Harga Sewa: ")
+    stok_baru = int(input("Masukkan Jumlah item: "))
+    stok_barang.append ({"Item": iphone_baru,"Harga sewa satuan": harga_sewa, "Jumlah stok": stok_baru})
+    print(f"Item {iphone_baru} berhasil ditambahkan dengan Jumlah {stok_baru}.")
+
+def hapus_stok():
+    item_hapus = input("Seri iPhone yang ingin dihapus: ")
+    
+    for item in stok_barang:
+        if item["Item"] == item_hapus:
+            stok_barang.remove (item)
+            print(f"item {item['Item']} berhasil dihapus.")
+            return
+    print(f"Item {item_hapus} tidak ditemukan.")
+        
+
+def menu_user():
+    while True:
+        print("====  Hello Selamat Datang  ====")
+        print("1.lihat stok iphone")
+        print("2.Rental iphone")
+        print("3.keluar")
+        pilihan = input("pilih opsi: ")
+        if pilihan == "1" :
+            lihat_stok_iphone ()
+        elif pilihan == "2":
+            rental_iphone ()
+        elif pilihan == "3":
+            print("Anda telah keluar.")
+            return 
+        else:
+            print("Pilihan tidak valid. Silakan coba lagi.")
+            return
+            
+              
+def lihat_stok_iphone():
+    judul1 = "-Daftar Stok Iphone-"
+    table = PrettyTable()
+    table.title = judul1
+    table.field_names = ["item","Harga sewa satuan","Jumlah stok"]
+    
+    for item in stok_barang:
+        table.add_row([item["Item"],item["Harga sewa satuan"],item["Jumlah stok"]])
+    print(table)
+
+def rental_iphone():
+    pilih = input("Masukkan seri iPhone yang ingin disewa: ")
+    for item in stok_barang:
+        if item["Item"].lower() == pilih.lower():
+            if item["Jumlah stok"] >0:
+                durasi = int(input("Masukkan durasi sewa (dalam hari): "))
+                total_harga = durasi * item ["Harga sewa satuan"]
+                item["Jumlah stok"] -= 1  
+                print(f"Anda berhasil menyewa {item['Item']} selama {durasi} hari.")
+                print(f"Total biaya sewa: Rp.{total_harga}.")
+                return
+            else:
+                print(f"Maaf, {item['Item']} tidak tersedia.")
+                
+    print(f"Seri {pilih} tidak ditemukan dalam daftar stok.")
+    exit()
+        
+
+masuk ()
+
+
