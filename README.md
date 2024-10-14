@@ -6,7 +6,7 @@
 ![Screenshot 2024-10-15 042925](https://github.com/user-attachments/assets/a626cb93-65b6-46aa-9d07-b29db58384cb)
 ![Screenshot 2024-10-15 042938](https://github.com/user-attachments/assets/7064d86f-a27a-4b41-993c-3439a93d909d)
 
-* 
+`````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 * paling atas ada from prettytable import prettytable, yang dimana berguna agar keterangan dictionarynya jadi tabel
 * lalu login menggunakan dictionary begitu juga untuk stok barang
 * lalu untuk masuk disini pakai fungsi def untuk mengunci disini saya terlihat pada print ("="*40) dimana itu border biar bagus
